@@ -59,7 +59,7 @@ class AdvertisingView(MethodView):
 
 app.add_url_rule('/advertising/<int:advertising_id>', view_func=AdvertisingView.as_view('advertising_get'), methods=['GET'])
 app.add_url_rule('/advertising/<int:advertising_id>', view_func=AdvertisingView.as_view('advertising_delete'), methods=['DELETE'])
-app.add_url_rule('/advertising/<int:advertising_id>', view_func=AdvertisingView.as_view('advertising_put'), methods=['PATCH'])
+app.add_url_rule('/advertising/<int:advertising_id>', view_func=AdvertisingView.as_view('advertising_patch'), methods=['PATCH'])
 app.add_url_rule('/advertising/', view_func=AdvertisingView.as_view('advertising_post'), methods=['POST'])
 
 if __name__ == '__main__':
