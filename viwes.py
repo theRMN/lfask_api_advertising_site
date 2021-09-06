@@ -34,18 +34,16 @@ class AdvertisingView(MethodView):
         })
 
     def patch(self, advertising_id):
-        advertising = Advertising.query.get(advertising_id)
         data = request.json
-        Advertising.query.filter_by(id=advertising_id).update(data)
+        response = Advertising.query.filter_by(id=advertising_id).update(data)  # True or False expected
         db.session.commit()
 
-        return jsonify({
-            'id': advertising.id,
-            'title': advertising.title,
-            'description': advertising.description,
-            'create_at': advertising.create_at,
-            'creator_id': advertising.creator_id
-        })
+        if response:
+            return jsonify(data)
+        else:
+            return jsonify({
+                'status': 'object not found'
+            })
 
     def delete(self, advertising_id):
         advertising = Advertising.query.get(advertising_id)
