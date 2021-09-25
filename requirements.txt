@@ -2,3 +2,5 @@ flask
 Flask-SQLAlchemy
 flask-migrate
 psycopg2-binary
+aiosmtplib
+more_itertools

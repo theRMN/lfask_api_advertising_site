@@ -1,4 +1,4 @@
-from app import app, db, Advertising
+from app import app, db, Advertising, Creator
 from flask import jsonify, request
 from flask.views import MethodView
 
@@ -53,6 +53,12 @@ class AdvertisingView(MethodView):
         return jsonify({
             'status': 204
         })
+
+
+class CreatorView(MethodView):
+
+    def send_email(self):
+        ...
 
 
 app.add_url_rule('/advertising/<int:advertising_id>', view_func=AdvertisingView.as_view('advertising_get'), methods=['GET'])
