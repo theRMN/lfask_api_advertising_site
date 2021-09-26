@@ -4,3 +4,5 @@ flask-migrate
 psycopg2-binary
 aiosmtplib
 more_itertools
+celery
+redis
